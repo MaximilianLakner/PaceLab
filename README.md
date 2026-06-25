@@ -1,56 +1,39 @@
-# Welcome to your Expo app 👋
+# PaceLab
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Trainings- und Wettkampf-Tagebuch für Leichtathleten in den **Zehnkampf- und verwandten Disziplinen**. Erfasse Einheiten und Versuche, verfolge deine Bestleistungen und sieh über die World-Athletics-Normierung deine **Gesamtform** über die Zeit.
 
-## Get started
+> Die vollständige Projektdokumentation (Datenmodell, Architektur, Entscheidungen, TODOs) steht in **[PROJECT.md](./PROJECT.md)** – die einzige Quelle der Wahrheit.
 
-1. Install dependencies
+## Features
 
-   ```bash
-   npm install
-   ```
+- **Sessions & Versuche** – eine Trainingseinheit kann mehrere Versuche enthalten (z. B. Intervall „8×100 m").
+- **Disziplinen** – die 10 offiziellen Zehnkampf-Disziplinen + Trainingsvarianten, erweiterbar um eigene.
+- **Richtungsbewusste Kurven** – „oben = besser", auch bei Läufen (invertierte Y-Achse), mit PB-Markierung und Trend.
+- **World-Athletics-Punkte** – offizielle Formel inkl. Handzeit-Korrektur.
+- **Kombinierte Form-Kurve** – alle Disziplinen normiert auf eine Gesamtpunktzahl.
+- **Regenerationsfreundlicher Streak** – zählt Wochen mit erreichtem Ziel; Ruhetage brechen den Streak nie.
+- **Offline-first** – alle Daten lokal, kein Login, keine Cloud.
 
-2. Start the app
+## Tech-Stack
 
-   ```bash
-   npx expo start
-   ```
+Expo SDK 56 · React Native 0.85 · React 19.2 · TypeScript · Expo Router · AsyncStorage · react-native-svg.
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## Start
 
 ```bash
-npm run reset-project
+npm install        # Abhängigkeiten
+npx expo start     # Dev-Server (Expo Go: nur SDK 56)
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Native Pakete immer mit `npx expo install <paket>` hinzufügen, damit die Versionen zu SDK 56 passen.
 
-### Other setup steps
+## Projektstruktur
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```
+src/
+  app/        Expo-Router-Screens (file-based)
+  components/ UI-Bausteine (ui, LineChart, SessionCard)
+  data/       types, standardDisciplines, storage, DataContext
+  logic/      points (WA), format, derived (PB/Streak/Form)
+  theme/      colors (Design-Tokens)
+```
