@@ -16,16 +16,18 @@ Trainings- und Wettkampf-Tagebuch für Leichtathleten in den **Zehnkampf- und ve
 
 ## Tech-Stack
 
-Expo SDK 56 · React Native 0.85 · React 19.2 · TypeScript · Expo Router · AsyncStorage · react-native-svg.
+Expo SDK 54 · React Native 0.81 · React 19.1 · TypeScript · Expo Router · AsyncStorage · react-native-svg.
+
+> Auf SDK 54 ausgerichtet, weil das verwendete Expo Go diese Version unterstützt (RN 0.81). Details in [PROJECT.md](./PROJECT.md) §2.
 
 ## Start
 
 ```bash
 npm install        # Abhängigkeiten
-npx expo start     # Dev-Server (Expo Go: nur SDK 56)
+npx expo start     # Dev-Server (Expo Go: SDK 54)
 ```
 
-Native Pakete immer mit `npx expo install <paket>` hinzufügen, damit die Versionen zu SDK 56 passen.
+Native Pakete immer mit `npx expo install <paket>` hinzufügen, damit die Versionen zu SDK 54 passen.
 
 ## Projektstruktur
 

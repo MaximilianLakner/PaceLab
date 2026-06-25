@@ -12,25 +12,27 @@ PaceLab ist eine **Mobile-App für Leichtathleten** (nicht Trainer), mit der sie
 
 ## 2. Tech-Stack (exakte Versionen)
 
+> **Hinweis zur SDK-Version:** Ursprünglich war SDK 56 vorgegeben. Das auf dem Zielgerät installierte **Expo Go unterstützt aber nur SDK 54 (React Native 0.81)**. Da Expo Go nur ein SDK gleichzeitig unterstützt, wurde das Projekt auf **SDK 54** ausgerichtet, damit es ohne Custom Dev Client direkt in Expo Go läuft.
+
 | Bereich | Wahl | Version |
 |---|---|---|
-| Runtime/Framework | Expo SDK | **56.0.12** |
-| | React Native | 0.85.3 |
-| | React | 19.2.3 |
-| Sprache | TypeScript | ~6.0.3 |
-| Navigation | expo-router (file-based) | ~56.2.11 |
-| Persistenz | @react-native-async-storage/async-storage | via `expo install` |
-| Charts | react-native-svg (eigene Chart-Komponente) | via `expo install` |
-| Icons | @expo/vector-icons (Ionicons) | via `expo install` |
-| Datumswahl | @react-native-community/datetimepicker | via `expo install` |
+| Runtime/Framework | Expo SDK | **54.0.35** |
+| | React Native | 0.81.5 |
+| | React | 19.1.0 |
+| Sprache | TypeScript | ~5.9.2 |
+| Navigation | expo-router (file-based) | ~6.0.24 |
+| Persistenz | @react-native-async-storage/async-storage | 2.2.0 |
+| Charts | react-native-svg (eigene Chart-Komponente) | 15.12.1 |
+| Icons | @expo/vector-icons (Ionicons) | ^15.0.2 |
+| Datumswahl | @react-native-community/datetimepicker | 8.4.4 |
 | State | React Context (`DataProvider`) | — |
 
-Node ≥ 20.19.4 erforderlich. **Alle nativen Pakete ausschließlich über `npx expo install`** installieren (SDK-56-kompatible Versionen). Expo Go unterstützt nur das jeweils neueste SDK.
+Node ≥ 20.19.4 erforderlich. **Alle nativen Pakete ausschließlich über `npx expo install`** installieren (SDK-54-kompatible Versionen). Mit `npx expo install --check` lässt sich die Ausrichtung prüfen.
 
 ### Begründung der Schlüssel-Entscheidungen
 
 - **Persistenz = AsyncStorage (ein JSON-Blob)** statt SQLite: Der Datenbestand eines einzelnen Athleten ist klein und passt in den Speicher. Ein einziger Blob erlaubt vollständige React-Reaktivität (alles im Context, Schreiben = State-Update + Persist) ohne SQL-Queries und Migrationsskripte. SQLite wäre überdimensioniert.
-- **Charts = react-native-svg + eigene `LineChart`-Komponente** statt Fremd-Chart-Lib: garantierte Kompatibilität mit SDK 56 / RN 0.85 / React 19 und volle Kontrolle über die richtungsbewusste Y-Achse („oben = besser"), PB-Markierung und Trendlinie.
+- **Charts = react-native-svg + eigene `LineChart`-Komponente** statt Fremd-Chart-Lib: garantierte Kompatibilität mit SDK 54 / RN 0.81 / React 19 und volle Kontrolle über die richtungsbewusste Y-Achse („oben = besser"), PB-Markierung und Trendlinie.
 - **Navigation = JS-Tabs (`Tabs`)** statt native Tabs: volle Kontrolle über die Pastell-Palette.
 - **Nur helles Farbschema** (`userInterfaceStyle: light`): die abgestimmte Pastell-Palette soll nicht durch einen Dark Mode gebrochen werden.
 
