@@ -110,14 +110,13 @@ Der Streak zählt **Wochen mit ≥ Wochenziel Trainingstagen** (Default 3), nich
 
 ## 10. Git-Workflow
 
-- Repo: `https://github.com/MaximilianLakner/PaceLab.git`
-- Nach jeder abgeschlossenen Änderung committen (+ pushen, sobald Remote-Auth verfügbar).
+- Repo: `git@github.com:MaximilianLakner/PaceLab.git` (Push via SSH-Key `id_ed25519`).
+- Nach jeder abgeschlossenen Änderung committen und pushen.
 - Conventional Commits: `feat:`, `fix:`, `refactor:`, `docs:`, `chore:`.
 
 ## 11. Offene Entscheidungen / TODOs
 
 - [ ] **Frauen-Siebenkampf**: eigene Koeffizienten (100 m H, Hoch, Kugel, 200 m, Weit, Speer, 800 m) ergänzen, falls später gewünscht. Aktuell nur Männer-Zehnkampf.
-- [ ] **Push zum Remote**: `gh` ist auf der Maschine nicht installiert; erster Push erfolgt, sobald Git-Auth/Remote eingerichtet ist.
 - [ ] Wochenziel des Streaks konfigurierbar machen (aktuell fix 3).
 - [ ] Optionaler Daten-Export/Backup.
 - [ ] Wind-/Bedingungs-Marker direkt in der Disziplin-Kurve (aktuell in der Einheitenliste sichtbar).
